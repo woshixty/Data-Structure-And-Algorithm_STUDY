@@ -1,4 +1,4 @@
-### Uva 101 the block problem 木块问题
+### Uva 101 the block problem
 
 #### 题目大意：
 
@@ -16,7 +16,7 @@
 当输入quit时，结束操作并输出0~n-1的位置上的木块情况
 ```
 
-#### Sample Input 
+#### Sample Input
 
 ```tex
 10
