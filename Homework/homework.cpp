@@ -158,15 +158,6 @@ class Node{
         }
 };
 
-
-
-
-
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
-//----------------------------------------------------------------------
-
-
 class List{
     private:
         Node *first, *down_head, *right_head;
@@ -220,9 +211,6 @@ bool List::judge_null() {
     return false;
 }
 
-
-//##########################################################
-//##########################################################
 void List::Make_list(int x) {
     Node *p=NULL;
     Node *tail=NULL;
@@ -259,10 +247,6 @@ void List::Make_list(int x) {
         }
     }
 }
-//##########################################################
-//##########################################################
-
-
 
 void List::Print() {
     if(first==NULL) {
@@ -289,32 +273,10 @@ void List::Print() {
             }else {
                 cout<<" "<<right_head->space->name;
             }
-            // cout<<" "<<right_head->space->name;
         } 
         cout<<'\n';
     }
 }
-
-// void List::Print1() {
-//     right_head=first;
-//     for( ; right_head->right!=NULL; )
-//         right_head=right_head->right;
-//     for( ; right_head!=NULL; ) {
-//         cout<<right_head->space->name<<endl;
-//         right_head=right_head->down;
-//     } 
-// }
-
-// void List::Print2() {
-//     down_head=first;
-//     down_head=down_head->down;
-//     down_head=down_head->down;
-//     for( ; down_head!=NULL; ) {
-//         cout<<down_head->space->name<<"  ";
-//         down_head=down_head->right;
-//     }
-//     cout<<'\n';
-// }
 
 void List::Clear() {
     down_head=right_head=first;
@@ -328,50 +290,40 @@ void List::Clear() {
 Node * List::Circle(Node * p, char ch) {
     int number,flag=1;
     number=rand_number();
-    // cout<<'('<<number<<' '<<flag<<')'<<endl;
     while(flag<=4) {
-        // cout<<number<<"  "<<flag<<endl;
         switch (number) {
             case 0:
                 if (p->up!=NULL && p->up->space->name == ch ) {
-                    // cout<<"上边"<<endl;
                     return p->up;
                 }
                 if(p->up!=NULL && p->up->right!=NULL && p->up->right->space->name == ch ) {
-                    // cout<<"上右"<<endl;
                     return p->up->right;
                 }
                 break;
 
             case 1:
                 if (p->right!=NULL && p->right->space->name == ch ) {
-                    // cout<<"右边"<<endl;
                     return p->right;
                 }
                 if(p->right!=NULL && p->right->down!=NULL && p->right->down->space->name == ch ) {
-                    // cout<<"右下"<<endl;
                     return p->right->down;
                 }
                 break;
 
             case 2:
                 if (p->down!=NULL && p->down->space->name == ch ) {
-                    // cout<<"下边"<<endl;
                     return p->down;
                 }
                 if(p->down!=NULL && p->down->left!=NULL && p->down->left->space->name == ch ) {
-                    // cout<<"下左"<<endl;
                     return p->down->left;
                 }
                 break;
 
             case 3:
                 if (p->left!=NULL && p->left->space->name == ch ) {
-                    // cout<<"左边"<<endl;
                     return p->left;
                 }
                 if(p->left!=NULL && p->left->up!=NULL && p->left->up->space->name == ch ) {
-                    // cout<<"左上"<<endl;
                     return p->left->up;
                 }
                 break;
@@ -383,7 +335,6 @@ Node * List::Circle(Node * p, char ch) {
         number=number%4;
         flag++;
     }
-    // cout<<"没找着"<<endl;
     return NULL;
 }
 
@@ -415,24 +366,15 @@ bool List::find_male(Node * p, char ch) {
 void List::Grass_Multiply(Node *p) {
     if(p->space->action)
         return ; 
-
-    // cout<<1<<endl;
-
     Node *find_node=Circle(p, ' ');
-
-    // cout<<2<<endl;
 
     if (find_node == NULL)
         return ;
-
-    // cout<<3<<endl;
 
     delete find_node->space;
     find_node->space=new Grass();
     p->space->action=true;
     find_node->space->action=true;
-
-    // cout<<4<<endl;
 }
 
 bool List::Eating(Node *p, char ch) {
@@ -458,76 +400,6 @@ bool List::Eating(Node *p, char ch) {
     p->space=new Area();
     return true;
 }
-
-
-// void List::test() {
-//     down_head=right_head=first;
-//     for( ; down_head!=NULL; down_head=down_head->down) {
-//         for (right_head=down_head; right_head!=NULL; right_head=right_head->right) {
-//             if(right_head->space->name=='1') {
-//                 // cout<<"++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-//                 // cout<<"hello"<<endl;
-//                 Grass_Multiply(right_head);
-//             }
-//         } 
-//     }
-// }
-
-// void List::test2() {
-//     down_head=right_head=first;
-//     for( ; down_head!=NULL; down_head=down_head->down) {
-//         for (right_head=down_head; right_head!=NULL; right_head=right_head->right) {
-//             if(right_head->space->name=='2') {
-//                 cout<<"++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-//                 Node *find=Circle(right_head, '1');
-//                 if(find!=NULL)
-//                     cout<<"yes"<<endl;
-//                 else
-//                     cout<<"no"<<endl;
-//             }
-//         } 
-//     }
-// }
-
-// void List::test() {
-//     down_head=right_head=first;
-//     for( ; down_head!=NULL; down_head=down_head->down) {
-//         for (right_head=down_head; right_head!=NULL; right_head=right_head->right) {
-//             if(right_head->space->name=='2' && !right_head->space->action) {
-                // cout<<"++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-                // cout<<"hello"<<endl;
-//                 Eating(right_head, '1');
-//             }
-//         } 
-//     }
-// }
-
-// void List::test() {
-//     down_head=right_head=first;
-//     for( ; down_head!=NULL; down_head=down_head->down) {
-//         for (right_head=down_head; right_head!=NULL; right_head=right_head->right) {
-//             if(right_head->space->name=='3' && !right_head->space->action && right_head->space->gender==0) {
-//                 // cout<<"++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-//                 // cout<<"hello"<<endl;
-//                 Predator_Multiply(right_head, '3');
-//             }
-//         } 
-//     }
-// }
-
-// void List::test() {
-//     down_head=right_head=first;
-//     for( ; down_head!=NULL; down_head=down_head->down) {
-//         for (right_head=down_head; right_head!=NULL; right_head=right_head->right) {
-//             if(right_head->space->name!=' ' && right_head->space->name!='1' && !right_head->space->action) {
-//                 // cout<<"++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-//                 // cout<<"hello"<<endl;
-//                 move(right_head);
-//             }
-//         } 
-//     }
-// }
-
 
 bool List::Herbiovre_Multiply(Node *p, char ch) {
     if(p->space->gender==1)
@@ -576,9 +448,6 @@ bool List::Predator_Multiply(Node *p, char ch) {
     Predator *p_her=(Predator *)p->space;
     if(p_her->pregnancy==1) {
         if(find_male(p, '3')) {
-
-            // cout<<"111111111"<<endl;
-
             p_her->pregnancy=0;
             p_her->action=true;
             return true;
@@ -590,9 +459,6 @@ bool List::Predator_Multiply(Node *p, char ch) {
             if(p_find==NULL) 
                 return false;
             else {
-
-                // cout<<"222222222"<<endl;
-
                 delete p_find->space;
                 p_find->space=new Predator();
                 p_find->space->action=true;
@@ -601,9 +467,6 @@ bool List::Predator_Multiply(Node *p, char ch) {
                 return true;
             }
         } else {
-
-            // cout<<"333333333"<<endl;
-
             delete p_find->space;
             p_find->space=new Predator();
             p_find->space->action=true;
@@ -787,9 +650,6 @@ bool List::save_file() {
     return true;
 }
 
-
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 bool List::read_file() {
     char ch,s;
     if(!judge_null()) {
@@ -818,19 +678,9 @@ bool List::read_file() {
     
 
     while(data[0]!='\0') {
-
-//+++++++
-cout<<data<<endl;
-//+++++++
-
         p_before=NULL;
         down_head=NULL;
         for (int i = 0; data[i]!='\0'; i++){
-
-//+++++++
-// cout<<data[i]<<endl;
-//+++++++
-
             p_tail=new Node(data[i]);
 
             if(down_head==NULL && right_head==NULL)
@@ -870,9 +720,6 @@ cout<<data<<endl;
     }
     return true;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 
 void one(List &p_list) {
 
