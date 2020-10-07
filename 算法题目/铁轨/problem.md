@@ -8,7 +8,7 @@
 某城市有一个火车站，有n节车厢从A方向驶入车站，按进站的顺序编号为1-n.你的任务是判断是否能让它们按照某种特定的顺序进入B方向的铁轨并驶入车站。例如，出栈顺序（5 4 1 2 3）是不可能的，但是（5 4 3 2 1）是可能的。
 ```
 
-![\begin{picture}(6774,3429)(0,-10)\put(1789.500,1357.500){\arc{3645.278}{4.7247}......tFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Station}}}}}\end{picture}](../../NV3UBf-20200813205816908.png)
+![\begin{picture}(6774,3429)(0,-10)\put(1789.500,1357.500){\arc{3645.278}{4.7247}......tFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}Station}}}}}\end{picture}](../../tiegui.png)
 
 ##### **题目分析：**
 
