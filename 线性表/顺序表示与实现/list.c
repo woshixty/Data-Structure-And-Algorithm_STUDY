@@ -2,11 +2,9 @@
 #include<stdlib.h>
 
 typedef struct Student {
-    char name[10];
-    int age;
+    int *elem;
+    int length;
+    int size;
 }Student;
 
 
-typedef struct {
-
-};
