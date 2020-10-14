@@ -117,4 +117,9 @@ List Delete(int i, List Ptrl)
 }
 
 int main() {
+    Ptrl=Insert(1,1,Ptrl);
+    Ptrl=Insert(1,1,Ptrl);
+    Ptrl=Insert(1,1,Ptrl);
+    printf("%d\n", Length(Ptrl));
+    return 0;
 }

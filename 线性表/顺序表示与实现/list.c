@@ -6,5 +6,3 @@ typedef struct Student {
     int length;
     int size;
 }Student;
-
-

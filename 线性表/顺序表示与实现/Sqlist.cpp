@@ -67,10 +67,12 @@ void ListDelete_Sq(SqList &L, int i, int e) {
    {
       return ;
    }
-   int *p = &(L.elem[i-1]);
-   e = *p;
-   int q =L.elem+L.length-1;
-
+   int *p = &(L.elem[i-1]);    //p为被删除元素的位置
+   e = *p;    //被删除元素的值赋给e
+   int *q =L.elem+L.length-1;    //表尾元素的值的位置
+   for (++p; p<=q; ++p) *(p-1)=*p;    //删除元素之后的位置左移
+   --L.length;
+   return ;
 }
 
 void Print_Sqlist(SqList &L) {
