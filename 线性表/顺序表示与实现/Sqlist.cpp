@@ -69,7 +69,7 @@ void ListDelete_Sq(SqList &L, int i, int e) {
    }
    int *p = &(L.elem[i-1]);
    e = *p;
-   int q =L.elem+L.length-1;
+   int *q =L.elem+L.length-1;
 
 }
 

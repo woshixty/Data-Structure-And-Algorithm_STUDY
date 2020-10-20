@@ -7,7 +7,7 @@ struct LNode
     int data;
     List next;
 };
-struct LNode L;
+// struct LNode L;
 List Ptrl;
 
 //广义表
