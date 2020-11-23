@@ -19,10 +19,17 @@ bool GetInt(int &value) {
 
     fflush(stdin);  //清空缓存
 
-    gets_s(str, 256);  //输入数据，并将数据存到 str 中
+    fgets(str, 256, stdin);  //输入数据，并将数据存到 str 中
+
+    //去掉换行符
+    char* find;
+    find = strchr(str, '\n');
+    if (find) {
+        *find = '\0';
+    }
+    
 
     unsigned int index = 1;
-
     int nTemp = 0;
 
     if (str[0] =='-')  //判断输入的数据是否为负数
@@ -53,14 +60,14 @@ void InputData(int nOrder, PLinkList &sPolyn) {
     int a[100];  //存放输入过的指数
 
     for (int i = 0; i < num; i++) {
-        printf("请输入系数\n");
+        printf("请输入第%d项的系数\n", i+1);
         //使用 cin.fail() 检测系数是否合法
         int dbCoef;
         cin>>dbCoef;
         if (cin.fail() && dbCoef==0)
             return ;
         
-        printf("请输入指数\n");
+        printf("请输入第%d项的指数\n", i+1);
         //使用getInt检测输入的指数是否合法
         int nExpn;
         GetInt(nExpn);
@@ -70,6 +77,7 @@ void InputData(int nOrder, PLinkList &sPolyn) {
         sNewNode.nExpn = nExpn;
         ListInsert(sPolyn, sNewNode);
     }
+
     //打印多项式链表
     PrintPolyn(sPolyn);
 }

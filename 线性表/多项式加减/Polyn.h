@@ -30,11 +30,12 @@ void ListInsert(PLinkList sPolyn, PLNODE sNewNode) {
     }
     
     //将指针对象所指的值改为sNewNode
+    *psNewNode = sNewNode;
     
     for ( ; sTemp->next!=NULL; sTemp=sTemp->next) ;
 
     sTemp->next = psNewNode;  //将结点插入链表尾部
-    psNewNode = NULL;   //将尾结点的指向置为空
+    psNewNode->next = NULL;   //将尾结点的指向置为空
 }
 
 //将链表按指数从小到大排序
@@ -42,7 +43,17 @@ PLinkList ListSort();
 
 //打印输出单个节点
 void PrintPoly(PLNODE sPTemp) {
-    if (sPTemp.nExpn) {  //指数为零，直接输出系数
+
+    //判断系数
+    if (sPTemp.dbCoef < 0) {
+        cout<<'-';
+    } else if (sPTemp.dbCoef > 0) {
+        cout<<'+';
+    } else {
+        return ;
+    }
+
+    if (sPTemp.nExpn == 0) {  //指数为零，直接输出系数
         cout<<sPTemp.dbCoef;
     } else if(sPTemp.dbCoef==1) {  //当系数为1时
         if (sPTemp.nExpn == 1) {
@@ -52,24 +63,26 @@ void PrintPoly(PLNODE sPTemp) {
         }
     } else if (sPTemp.dbCoef == -1) {
         if (sPTemp.nExpn == 1) {
-            cout<<"-x";
+            cout<<"x";
         } else{
-            cout<<"-x^"<<sPTemp.nExpn;
+            cout<<"x^"<<sPTemp.nExpn;
         }
     } else {
         if (sPTemp.nExpn == 1) {
-            cout<<sPTemp.dbCoef<<"x"<<endl;
+            cout<<sPTemp.dbCoef<<"x";
         } else {
             cout<<sPTemp.dbCoef<<"x^"<<sPTemp.nExpn;
         }
     }
 }
+
 //打印输出整个一元多项式
 void PrintPolyn(PLinkList &sPloyn) {
     PLinkList &s = sPloyn;
-    for ( ; s->next!=NULL; s=s->next) {
+    for ( s=s->next ; s!=NULL; s=s->next) {
         PrintPoly(*s);
     }
+    cout<<endl;
 }
 
 //将两个一元多项式相加
