@@ -15,14 +15,14 @@ void ListInsert(PLinkList sPolyn, PLNODE sNewNode);
 void CreatePolyn(PLinkList &sPloyn);
 void AddPolyn(PLinkList &a, PLinkList &b, PLinkList &c);
 void FreePolyn(PLinkList &a);
-void test();
+void action();
 
 int main() {
-    test();
+    action();
     return 0;
 }
 
-void test() {
+void action() {
     PLinkList a=NULL;
     PLinkList b=NULL;
     //建两条链表
@@ -216,9 +216,9 @@ void PrintPoly(PLNODE sPTemp) {
         }
     } else if (sPTemp.dbCoef == -1) {
         if (sPTemp.nExpn == 1) {
-            printf("x");
+            printf("-x");
         } else{
-            printf("x^%d",sPTemp.nExpn);
+            printf("-x^%d",sPTemp.nExpn);
         }
     } else {
         if (sPTemp.nExpn == 1) {

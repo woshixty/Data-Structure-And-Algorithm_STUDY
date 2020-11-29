@@ -3,7 +3,7 @@
  */
 
 #ifndef LinkedStorage
-#define MAX_TREE_SIZE
+#define LinkedStorage
 
 typedef struct BiTNode {
     char data;
