@@ -101,7 +101,7 @@ void Dynamic_to_Static(Bitree DT, Sta_BiTNode ST[]) {
     //将这个节点的data存入数组
     ST[dex].data = DT->data;
     
-    //康康左右孩子 如果不是NULL就让 ST[index] 指向他们 
+    //康康左右孩子 如果不是NULL就让 ST[index] 指向他们
     if (DT->lchild != NULL)
         ST[dex].lchild = DT->lchild->index;
 
