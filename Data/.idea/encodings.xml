@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/model/BusSystem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/model/LineMsg.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/model/Position.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/model/Route.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/model/Station.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/AddLineMsgDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/AddStationDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/ChangeLineMsgDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/ChangeStationDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/DrawPanel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/LineMsgWindow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/MainWindow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/MapWindow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/RouteDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/SearchWindow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/view/StationWindow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/station.csv" charset="GBK" />
+  </component>
+</project>
