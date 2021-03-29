@@ -57,10 +57,8 @@ public class BusSystem {
 				if (routeFile.exists()) {
 					routes = new ArrayList<>();
 					Route lastRoute = new Route();
-
 					BufferedReader routeReader = new BufferedReader(new InputStreamReader(new FileInputStream(routeFile), "gbk"));
 					String line;
-
 					routeReader.readLine();
 					while ((line = routeReader.readLine()) != null) {
 						Route route = new Route(line);
@@ -72,7 +70,6 @@ public class BusSystem {
 						else lastRoute = route;
 						routes.add(route);
 					}
-
 					routeReader.close();
 				}
 				BufferedReader stationReader = new BufferedReader(new InputStreamReader(new FileInputStream(stationFile), "gbk"));
@@ -89,7 +86,6 @@ public class BusSystem {
 
 					stations.add(station);
 				}
-
 				stationReader.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -104,29 +100,28 @@ public class BusSystem {
 		File lineMsgFile = new File("line_msg.csv");
 		File stationFile = new File("station.csv");
 		File routeFile = new File("route.csv");
-
+		//try-catch捕获来异常
 		try {
 			BufferedWriter lineMsgWriter = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(lineMsgFile),"gbk"));
-
+			//写入文件，每次都覆盖
 			lineMsgWriter.write("id,name,detail");
 			lineMsgWriter.newLine();
 			for (LineMsg lineMsg : lineMsgList) {
 				lineMsgWriter.write(lineMsg.toOutString());
 				lineMsgWriter.newLine();
 			}
-
+			//关闭写入流
 			lineMsgWriter.close();
-
+			//字符缓冲输出流-gbk编码
 			BufferedWriter stationWriter = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(stationFile),"gbk"));
 			BufferedWriter routeWriter = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(routeFile),"gbk"));
-
+			//写入
 			stationWriter.write("id,pos_x,pos_y,name,first_route_id");
 			stationWriter.newLine();
 			routeWriter.write("id,msg_id,target_id,next_route_id");
 			routeWriter.newLine();
-
+			//遍历写入文件
 			int routeId = 0;
-
 			for (Station station : stationList) {
 				Route curr = station.getFirstRoute();
 				if (curr != null) {
@@ -148,7 +143,7 @@ public class BusSystem {
 					curr = curr.getNextRoute();
 				}
 			}
-
+			//关闭流，释放资源
 			stationWriter.close();
 			routeWriter.close();
 		} catch (IOException e) {

@@ -12,24 +12,20 @@ public class LineMsg {
 	private String name;
 	//线路描述
 	private String detail;
-
 	@Override
 	public String toString() {
 		return "LineMsg [id=" + id + ", name=" + name + ", detail=" + detail + "]";
 	}
-
 	//输出到文件-逗号分隔符
 	public String toOutString() {
 		return id + "," + name + "," + detail;
 	}
-
 	//全构造
 	public LineMsg(int id, String name, String detail) {
 		this.id = id;
 		this.name = name;
 		this.detail = detail;
 	}
-
 	//一个字符串创建一个站点-处理
 	public LineMsg(String inStr) {
 		String[] strs = inStr.split(",");
